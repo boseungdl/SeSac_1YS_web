@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <style>
+            div {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+            }
+            #div1 {
+                background: rgb(222, 60, 60);
+                position: relative;
+                left: 150px;
+                top: 350px;
+            }
+            #eyes {
+                width: 30px;
+                height: 30px;
+                background: #fff;
+                position: absolute;
+                left: 20px;
+                top: 20px;
+            }
+            #eyes2 {
+                width: 15px;
+                height: 15px;
+                position: absolute;
+                left: 0px;
+                top: 5px;
+                background: #000;
+            }
+            #div2 {
+                background: rgb(32, 113, 154);
+                position: relative;
+                left: 50px;
+                top: 40px;
+            }
+            #div3 {
+                background: rgb(44, 155, 27);
+                position: relative;
+                left: 50px;
+                top: 50px;
+            }
+            #div4 {
+                background: rgb(74, 22, 99);
+                position: relative;
+                left: 50px;
+            }
+            #div5 {
+                background: rgb(50, 66, 28);
+                position: relative;
+                left: 50px;
+                z-index: 2;
+            }
+            img {
+                position: relative;
+                z-index: 1;
+                left: 100px;
+                top: 100px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="div1">
+            <div id="eyes">
+                <div id="eyes2"></div>
+            </div>
+            <div id="div2">
+                <div id="div3">
+                    <div id="div4">
+                        <div id="div5"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="../pngwing.com.png" alt="">
+    </body>
+</html>

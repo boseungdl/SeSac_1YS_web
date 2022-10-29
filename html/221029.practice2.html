@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <style>
+            body {
+                padding-top: 300px;
+            }
+            img {
+                width: 300px;
+                height: 150px;
+                transform: skewY(20deg);
+               
+            }
+            img:nth-child(1) {
+                position: relative;
+                z-index: 3;
+            }
+            img:nth-child(2) {
+                transform: translateX(-100px) skewY(20deg);
+                position: relative;
+                z-index: 2;
+            }
+            img:nth-child(3) {
+                transform: translateX(-200px) skewY(20deg);
+            }
+        </style>
+    </head>
+
+    <body>
+        <img src="../bing.jpg" alt="">
+        <img src="../coffee3.jpg" alt="">
+        <img src="../coffee2.jpg" alt="">
+    </body>
+</html>
