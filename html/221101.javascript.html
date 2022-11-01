@@ -45,15 +45,15 @@
         // parameter3(variable, variable, variable)
 
         var a = 1
-        if(a>10){
-            console.log("a>10")
-        } else if (a > 5){
-            console.log("a>5");
-        } else if (a > 0){
-            console.log("a>0");
-        } else {
-            console.log("no!");
-        }
+        // if(a>10){
+        //     console.log("a>10")
+        // } else if (a > 5){
+        //     console.log("a>5");
+        // } else if (a > 0){
+        //     console.log("a>0");
+        // } else {
+        //     console.log("no!");
+        // }
         
         // for (let i = 0; i < 10; i++) {
         //     console.log(" i : " + i)
@@ -63,31 +63,59 @@
 
        
 
-        for (let i = 1; i < 10; i++) {
-            console.log(i + "단");
-            for (let j = 1; j < 10; j++) {
-                console.log(i + " * " + j + " = " + i*j)
+        // for (let i = 1; i < 10; i++) {
+        //     console.log(i + "단");
+        //     for (let j = 1; j < 10; j++) {
+        //         console.log(i + " * " + j + " = " + i*j)
+        //     }
+        // }
+
+        function add2(n){
+            let a=0;
+            let b=0;
+            let c=0;
+            for (let i = 0; i <= n; i++) {
+                // if(n>0 && n<100){
+                //     if(i%2 == 0){
+                //     a = a+i;
+                //     console.log(a)
+                // }
+                // if(i%3 == 0){
+                //     b = b+i;
+                //     console.log(b)
+                // }
+                // if(i%6 == 0){
+                //     c = c+i;
+                //     console.log(c)
+                // }
+                // }
+                if ( i%2 == 0 || i%3 ==0 ) {
+                   a = a + i;
+                }
             }
-        }
+            return console.log(a);
+            // return console.log(a+b-c)
+        } add2(99)
 
         function add(n){
-            if(n>0 && n<100){}
             let a = 0;
             let b = 0;
             let c = 0;
-            for (let w = 0; w <= n; w = w+6){
-                c = c + w
+            if(n>0 && n<100){
+                for (let w = 0; w <= n; w = w+6){
+                    c = c + w
+                }
+                for(let i = 0; i <= n; i=i+2){
+                    
+                    a = a + i;
+                }
+                for(let j = 0; j <= n; j=j+3){
+                    
+                    b = b + j;
+                }
             }
-            for(let i = 0; i <= n; i=i+2){
-                console.log(i)
-                a = a + i;
-            }
-            for(let j = 0; j <= n; j=j+3){
-                console.log(j)
-                b = b + j;
-            }
-            return console.log('합계 : ' + parseInt(a+b-c));
-        } add(100)
+            return console.log('합계 : ' + Number(a+b-c));
+        } add(99)
     </script>
 </body>
 </html>
