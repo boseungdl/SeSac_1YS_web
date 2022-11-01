@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <style>
+            .div1 {
+                width: 100px;
+                height: 100px;
+                background: blue;
+                position: relative;
+                animation-name: anim;
+                animation-duration: 2s;
+                animation-delay: 0s;
+                animation-iteration-count: 3;
+                animation-timing-function: ease-in-out;
+            }
+            .div2 {
+                border-radius: 50px;
+                width: 100px;
+                height: 100px;
+                position: relative;
+                background: blue;
+                animation: ball 3s ease 0s 3;
+                animation-direction: reverse;
+                animation-fill-mode: backwards;
+            }
+            @keyframes anim {
+                0% {left: 0;}
+                50% {left: 80px;}
+                100% {left: 100px;}
+            }
+            @keyframes ball {
+                0% {top: 0;}               
+                100% {top: 300px;}
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="div1"></div>
+        <div class="div2"></div>
+    </body>
+</html>

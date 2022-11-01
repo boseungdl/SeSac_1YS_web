@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // console.log(typeof('문자'))
+        // console.log(typeof(24155))
+        // console.log(typeof(function(){}))
+        // console.log(typeof(true))
+        // console.log(typeof({}))
+        // console.log(typeof([]))
+        // console.log(typeof(NaN))
+        // console.log(typeof(null))
+        // console.log(typeof(undefined))
+
+        // var a = '1'
+        // let b = 1
+
+        // console.log(parseInt(a) + b);
+        // console.log(Number(true));
+
+        // function sesac(){
+        //     console.log("sesac h1!");
+        // }
+        // sesac();
+        // function sesac2(a){
+        //     console.log(a + "hello");
+        // }
+        // sesac(a);
+
+        // function init() {console.log('init')}
+        // function parameter1 (a) {console.log(a);}
+        // function parameter2 (a,b) {console.log(a,b);}
+        // function parameter3 (a,b,c) {
+        //     console.log(a);
+        //     console.log(b);
+        //     console.log(c);
+        // }
+
+        // var variable = 'hi';
+        // parameter3(variable)
+        // parameter3(variable, variable)
+        // parameter3(variable, variable, variable)
+
+        var a = 1
+        if(a>10){
+            console.log("a>10")
+        } else if (a > 5){
+            console.log("a>5");
+        } else if (a > 0){
+            console.log("a>0");
+        } else {
+            console.log("no!");
+        }
+        
+        // for (let i = 0; i < 10; i++) {
+        //     console.log(" i : " + i)
+        // }
+
+        var j = 0;
+
+       
+
+        for (let i = 1; i < 10; i++) {
+            console.log(i + "단");
+            for (let j = 1; j < 10; j++) {
+                console.log(i + " * " + j + " = " + i*j)
+            }
+        }
+
+        function add(n){
+            if(n>0 && n<100){}
+            let a = 0;
+            let b = 0;
+            let c = 0;
+            for (let w = 0; w <= n; w = w+6){
+                c = c + w
+            }
+            for(let i = 0; i <= n; i=i+2){
+                console.log(i)
+                a = a + i;
+            }
+            for(let j = 0; j <= n; j=j+3){
+                console.log(j)
+                b = b + j;
+            }
+            return console.log('합계 : ' + parseInt(a+b-c));
+        } add(100)
+    </script>
+</body>
+</html>
