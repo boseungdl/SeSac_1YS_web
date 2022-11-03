@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script>
+        function calc(){
+            var input0 = document.querySelectorAll("input")[0].value;
+            var input1 = document.querySelectorAll("input")[1].value;
+            var input2 = document.querySelectorAll("input")[2].value;
+            var input3 = document.querySelectorAll("input")[3].value;
+
+            document.querySelectorAll("input")[3].value = eval(`${input0}${input2}${input1}`);
+            console.log(input0)
+            console.log(input1)
+            console.log(input2)
+            console.log(input3)
+        }
+        function reset(){
+            document.getElementsByTagName('input')[0].value = '';
+            document.getElementsByTagName('input')[1].value = '';
+            document.getElementsByTagName('input')[2].value = '';
+            document.getElementsByTagName('input')[3].value = '';
+        }
+        function submit(){
+            const input1  = document.querySelectorAll("input")[4];
+            console.log(input1)
+            const input2  = document.querySelectorAll("input")[5];
+            const tr = document.createElement('tr');
+            console.log(tr)
+            const td1 = document.createElement('td');
+            const td2 = document.createElement('td');
+            const td3 = document.createElement('td');
+            const td4 = document.createElement('td');
+
+            const tbody = document.querySelector('tbody');
+            tbody.append(tr)
+            tr.append(td1, td2, td3, td4)
+            td1.innerText = tbody.childNodes.length -1;
+            td2.innerText = input1.value;
+            td3.innerText = input2.value;
+            var today = new Date();
+            td4.innerText = today.getFullYear() + '-' + today.getMonth() + '-'+ today.getDate() + ' ' + today.getHours() + ' : ' + today.getMinutes();
+            console.log(tbody)
+        }
+    </script>
+</head>
+<body>
+    <label for="">값1 : </label>
+    <input type="text"><br>
+    <label for="">값2 : </label>
+    <input type="text"><br>
+    <label for="">연산자 : </label>
+    <input type="text"><br>
+    <label for="">결과 : </label>
+    <input type="text"><br>
+
+    <button type="button" onclick="calc()">계산하기</button>
+    <button type="button" onclick="reset()">초기화</button>
+
+    <br>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <br>
+
+    <label for="">작성자 :</label>
+    <input type="text"><br>
+    <label for="">내용 :</label>
+    <input type="text"><br>
+    <button type="button" onclick="submit()">작성</button>
+
+    <table border="1" cellspacing="0" cellpadding="10" style="text-align: center;">
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>작성자</th>
+                <th>내용</th>
+                <th>작성일</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+
+    <br>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <br>
+
+    <form action="">
+        <fieldset>
+            <legend>사이즈</legend>
+            Large-24000원
+        </fieldset>
+    </form>
+
+
+    <label for="pickle">피클(800원)</label>
+    <input name="pickle" type="checkbox" onclick="add(this, 800)" id="pickle">
+    <label for="source">칠리소스(300원)</label>
+    <input name="source" type="checkbox" onclick="add(this, 300)" id="source">
+    <label for="diping">디핑소스(200원)</label>
+    <input name="diping" type="checkbox" onclick="add(this, 200)" id="diping">
+    <label for="cheese">치즈스틱(4개4800원)</label>
+    <input name="cheese" type="checkbox" onclick="add(this, 4800)" id="cheese">
+    <label for="con">콘샐러드(2400원)</label>
+    <input name="con" type="checkbox" onclick="add(this, 2400)" id="con">
+
+    <form action="">
+        <fieldset>
+            <legend>합계</legend>
+            
+        </fieldset>
+    </form>
+    <script>
+        var all = 0;
+       function add(my, money){
+         
+         const 필드 = document.querySelectorAll('fieldset')[1];
+         const 레전드 = document.createElement("legend");
+         레전드.innerText = '합계';
+         필드.innerText = ''
+         if(!my.checked){
+            console.log(money)
+            all = all - money
+            필드.append(레전드, all + 24000)
+            return
+         }
+         all = all + money;
+         필드.append(레전드, all+24000)
+       }
+    </script>
+    
+</body>
+</html>
