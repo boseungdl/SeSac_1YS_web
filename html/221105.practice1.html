@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="./jquery-ui-1.13.2/jquery-ui.js"></script>
+    <link rel="" href="./jquery-ui-1.13.2/jquery-ui.css">
+    <title>Document</title>
+    <style>
+        div {
+        width: 100px;
+        height: 100px;
+        background: red;
+        margin-top: 500px;
+        }
+        div:hover{
+        cursor: pointer;
+        }
+        .class1 {
+        background-color: red;
+        }
+        .class2 {
+        background-color: orange;
+        }
+        .class3 {
+        background-color: yellow;
+        }
+        .class4 {
+        background-color: green;
+        }
+        .class5 {
+        background-color: blue;
+        }
+        .class6 {
+        background-color: purple;
+        }
+    </style>
+    <script>
+        var b = 2
+        function changeColor(a){
+            console.log(a)
+            $(a).switchClass($(a).attr("class"), "class"+b);
+            b == 6? b=1 : b++;
+        }
+    </script>
+    <script>
+    function img(a){
+            $("img").attr("src", `../${a}.jpg`);
+            console.log($("img"));
+            console.log($("img").attr("src"));
+    }
+    
+    
+    </script>
+</head>
+<body>
+    <img src="../apple.jpg" alt="">
+    <br>
+    <button type="button" onclick="img('apple')">apple</button>
+    <button type="button" onclick="img('banana')">banana</button>
+    <button type="button" onclick="img('pd')">포도</button>
+    <button type="button" onclick="img('pc')">복숭아</button>
+
+    <div id="div1" class="class" onclick="changeColor(this);"></div>
+
+
+
+</body>
+</html>
