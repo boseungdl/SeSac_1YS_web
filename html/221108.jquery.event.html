@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    body태그
+    <div id="div1" style="width: 100px; height: 100px; background-color: yellow;"></div>
+    <input type="text" id="input1">
+    <script>
+        //키보드 이벤트
+        $("#input1").keydown(function(e){ //아직 반영 x
+            console.log("input keydown")
+            console.log(e.keyCode)
+          
+        })
+        $("#input1").keyup(function(e){ 
+            console.log("input keyup")
+        })
+  
+
+
+
+
+        //마우스 이벤트
+        $("#div1").click(function(e){
+            console.log("div click")
+            console.log(e.currentTarget)
+        })
+        // $("#div1").mouseover(function(e){
+        //     console.log("div over")
+        // })
+        // $("#div1").hover(function(e){
+        //     console.log("hover1")
+        // }, function(){
+        //     console.log("hover2")
+        // })
+        $(window).scroll(function(e){
+            console.log("window scroll")
+        })
+
+
+
+        //로딩이벤츠
+        // $(document).ready(function(){
+        //     alert("document.ready")
+        // })
+        // $(function(){
+        //     alert("ready")
+        // })
+    </script>
+</body>
+</html>
