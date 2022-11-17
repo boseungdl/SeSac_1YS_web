@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// async function a(){
+		// 	const b = await new Promise((resolve, reject) => {console.log(1);resolve('성공')})
+		// 	console.log(b);
+		// 	const c = await new Promise((resolve, reject) => {console.log(2); resolve('성공2')})
+		// 	console.log(c);
+		// }a();
+
+		const aa = new Promise((res, rej) => {console.log(11); res('성공성공')})
+		const bb = new Promise((res, rej) => {console.log(22); res('성공성공22')})
+		async function a(){
+			const b = await aa
+			console.log(b);
+			const c = await bb
+			console.log(c);
+		}a();
+
+	</script>
+</body>
+</html>

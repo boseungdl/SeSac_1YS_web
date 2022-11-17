@@ -77,6 +77,10 @@
 			.my li {
 				list-style: square;
 			}
+			td {
+				border-width: 1px;
+				padding: 15px;
+			}
     </style>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   </head>
@@ -97,8 +101,7 @@
 						<input type="text" placeholder="궁금한 id를 입력하세요.">
 				</div>
 				<div>
-						<button>로그인</button>
-						<button>회원가입</button>
+						<button onclick="register()">정보등록하기</button>
 				</div>
 		</header>
 		<main style="padding-top: 20px;">
@@ -112,6 +115,7 @@
 						</div>
 					</div>
 					<ul class=" my" style="height: 20vh;">
+						<li>입장 인원</li>
 						<li>게임이름</li>
 						<li>순위</li>
 						<li>게임시간</li>
@@ -129,7 +133,12 @@
 							<!-- Slides -->
 							<div class="swiper-slide">
 								<div style="background: rgb(205, 239, 254); height: 100vh;">
-									테트리스
+									<table border="1" cellspacing="0" cellpadding="20" >
+										
+										<tbody>
+										
+										</tbody>
+									</table>
 								</div>
 							</div>
 							<div class="swiper-slide">Slide 2</div>
@@ -148,8 +157,8 @@
 					</div>
 				</div>
 					<div class="col-3">
-						<h3>해당 게임 랭킹!</h3>
-						<h4 style="padding: 70px 0 20px 0;">1등 : 킹킹왕</h4>
+						<h3 onclick="makeTetris()">해당 게임 랭킹!</h3>
+						<h4 onclick="makeBlock()" style="padding: 70px 0 20px 0;">1등 : 킹킹왕</h4>
 						<canvas id="myChart2" height="300"></canvas>
 					</div>
 			</div>
@@ -292,8 +301,109 @@
 
 			<script>
 				window.addEventListener("load", () => {
-					Swal.fire('로그인을 해야 시작할 수 있습니다!(*회원가입필수!!)')
+					Swal.fire('정보를 등록하고 입장하세요!')
 				})
+
+				async function register(){
+					const { value: nickname } = await Swal.fire({
+					title: 'Input nickname',
+					input: 'text',
+					inputLabel: 'Your nickname',
+					inputPlaceholder: 'Enter your nickname'
+					})
+
+					if (nickname) {
+					Swal.fire(`Entered nickname: ${nickname}`)
+					}
+				}
+				
+
+				//테트리스
+				
 			</script>
+
+
+<script>
+	const $tbody = document.querySelector("tbody")
+	const blocks = [];
+	const blockInfo = [
+		{name : 'a', shape:[[0,0],[0,1],[0,2],[0,3]], bg: 'red'},
+		{name : 'b', shape:[[0,0],[1,0],[2,0],[2,1]], bg: 'blue'},
+		{name : 'c', shape:[[0,0],[0,1],[1,0],[1,1]], bg: 'green'},
+	]
+	const makeTetris = function(){
+		Array(20).fill().forEach((tr) => {
+			const $tr = document.createElement("tr");
+
+			Array(10).fill(1).forEach(() => {
+				const $td = document.createElement("td");
+				
+				$tr.append($td)
+			})
+			$tbody.append($tr)
+		})
+		console.log($tbody)
+	
+	}
+
+	const makeBlock = function(){
+		let index = Math.ceil(Math.random()*(blockInfo.length-1))
+		console.log(index)
+		const 블록객체 = new createBlock(blockInfo[index]) //랜덤으로 생성
+		blocks.push(블록객체)
+	}
+
+	
+
+	class createBlock {
+			constructor(blockInfo){
+			this.name = blockInfo.name;
+			this.cells = blockInfo.shape;
+			console.log(blockInfo)
+			this.bg = blockInfo.bg;
+			this.screen()
+		}
+
+
+		screen(){
+			this.cells.forEach((cell,i) => {
+				const tr = document.querySelectorAll("tr")[this.cells[i][0]]
+				const td = tr.querySelectorAll("td")[this.cells[i][1]]
+				td.style.backgroundColor = this.bg;
+				console.log(td)
+			})
+		}
+
+		moveBlock(keyCode){
+			//if(){} 맨밑에 다으면 makeBlock() return
+			switch(keyCode){
+				case 37 : 
+					console.log(37);
+					break;
+				case 40 : 
+					console.log(40);
+					break;
+				case 39 : 
+					console.log(39);
+					break;
+				default : '';
+			}
+		}
+	}
+
+	setInterval(() => {
+
+	}, 1000)
+
+	window.addEventListener("keyup", (e) => {
+		console.log(blocks[blocks.length-1])
+		blocks[blocks.length-1].moveBlock(e.keyCode);
+	})
+
+
+
+
+
+</script>
   </body>
 </html>

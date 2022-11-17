@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>letter</title>
+</head>
+<style>
+  #div1 {
+    margin: 0 auto;
+    width: 500px;
+    height: 270px;
+    background-image: url(./letter.jpg);
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+  }
+  button {
+    background: rgb(255, 140, 159);
+    border-radius: 50px;
+    width: 50px;
+    height: 30px;
+    border: 1px solid rgb(253, 253, 253);
+    transition: 0.5s;
+    cursor: pointer;
+  }
+  button:hover {
+    width: 100px;
+    height: 60px;
+    background: rgb(223, 94, 206);
+    font-size: 1.3rem;
+  }
+  #div2 {
+    margin: 0 auto;
+    width: 500px;
+    height: 270px;
+    background: rgb(255, 140, 159);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    transition: 0.5s;
+  }
+  #div3 {
+    width: 400px;
+    height: 200px;
+    background: #fff;
+    border-radius: 30px;
+    padding: 10px;
+  }
+</style>
+<body>
+  <div id="div1">
+    <button type="button" onclick="a()">읽기</button>
+  </div>
+
+  <div id="div2">
+    <div id="div3">
+      To. 규리쌤
+      <hr>
+      곧 있을 생일 축하드립니다~
+      <hr>
+      잼게 보내세영~~
+      <hr>
+      남은 시간 잘 부탁드립니다!! 감사합니당
+    </div>
+  </div>
+  <script>
+    const $div1 = document.querySelector("#div1");
+    const $div2 = document.querySelector("#div2");
+
+    function a(){
+      $div1.style.display = "none";
+      $div2.style.display = "flex";
+    }
+    
+  </script>
+  
+</body>
+</html>
