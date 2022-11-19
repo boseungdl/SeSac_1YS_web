@@ -15,15 +15,33 @@
 		// 	console.log(c);
 		// }a();
 
-		const aa = new Promise((res, rej) => {console.log(11); res('성공성공')})
-		const bb = new Promise((res, rej) => {console.log(22); res('성공성공22')})
+		const aa = new Promise((res, rej) => {res('성공성공')})
+		const bb = new Promise((res, rej) => {res('성공성공22')})
+		const cc = new Promise((res, rej) => {res('성공성공33')})
+		const dd = new Promise((res, rej) => {res('성공성공44')})
+
 		async function a(){
 			const b = await aa
 			console.log(b);
 			const c = await bb
 			console.log(c);
-		}a();
+			const d = await bb
+			console.log(c);
+		}
+		
+		a();
 
+		cc.then((req) => {console.log(req); return 1}).then((req) => {console.log(req)})
+		dd.then((req) => {console.log(req)})
+		// cc.then((req) => {console.log(req)})
+		// cc.then((req) => {console.log(req)})
+		// cc.then((req) => {console.log(req)})
+		// cc.then((req) => {console.log(req)})
+  	//콜백함수는 -> 안의 콜백과 함꼐 같이 백그라운드로 간다 -> 그리고 콜백(setTimeout)이 호출스택에서 또 백그라운드로 간다.
+		//프로미스는? 그러면 -> 내부는 동기로 실행이 된다. -> then을 읽을때 then이 호출스택가서 백그라운드로 내부 옮기고 호출스택으로
+		//그런데 then이 2개라면 then앞에 멈춰있는건가 아니면 then을 한 번에 옮기는 건가?
+		//then이 앞에 멈춰있는거라면 뒤에 새로운 프로미스는 실행이되면 안된다 그렇지만 실행이된다 그래서 한꺼번에 움직인다고 생각한다.
+		//async는 결과를 옮길 
 	</script>
 </body>
 </html>

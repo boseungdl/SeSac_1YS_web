@@ -347,10 +347,11 @@
 	}
 
 	const makeBlock = function(){
-		let index = Math.ceil(Math.random()*(blockInfo.length-1))
-		console.log(index)
-		const 블록객체 = new createBlock(blockInfo[index]) //랜덤으로 생성
-		blocks.push(블록객체)
+		let index = Math.round(Math.random()*(blockInfo.length-1))
+		console.log("makeBlock")
+		
+		 //랜덤으로 생성
+		blocks.push(new createBlock(JSON.parse(JSON.stringify(blockInfo[index]))))
 	}
 
 	
@@ -362,6 +363,9 @@
 			console.log(blockInfo)
 			this.bg = blockInfo.bg;
 			this.screen()
+			setInterval(() => {
+				blocks[blocks.length - 1].moveBlock(40)
+			},1000)
 		}
 
 
@@ -376,12 +380,32 @@
 
 		moveBlock(keyCode){
 			//if(){} 맨밑에 다으면 makeBlock() return
+			var next = function(){
+				
+			}
 			switch(keyCode){
 				case 37 : 
 					console.log(37);
 					break;
 				case 40 : 
-					console.log(40);
+				console.log(this.cells);
+				
+				this.cells.forEach((cell,i) => {
+					console.log(document.querySelectorAll("tr")[this.cells[i][0]+1].style.bg)
+					if(document.querySelectorAll("tr")[this.cells[i][0]+1]?.style.bg) makeBlock(); 
+						const tr = document.querySelectorAll("tr")[this.cells[i][0]]
+						const td = tr.querySelectorAll("td")[this.cells[i][1]]
+						td.style.backgroundColor = 'white';
+					})
+				
+					this.cells.forEach((cell,i) => {
+						cell[0] = cell[0] + 1
+					})
+					this.cells.forEach((cell,i) => {
+						const tr = document.querySelectorAll("tr")[this.cells[i][0]]
+						const td = tr.querySelectorAll("td")[this.cells[i][1]]
+						td.style.backgroundColor = this.bg;
+					})
 					break;
 				case 39 : 
 					console.log(39);
@@ -397,6 +421,7 @@
 
 	window.addEventListener("keyup", (e) => {
 		console.log(blocks[blocks.length-1])
+		console.log(e.keyCode)
 		blocks[blocks.length-1].moveBlock(e.keyCode);
 	})
 
