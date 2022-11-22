@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="/pt">
+    <label for="namne">이름</label>
+    <input type="text">
+    <fieldset>
+      <legend>성별</legend>
+      <label for="men">남자</label>
+      <input type="radio" name="gender" id="men" value="남자">
+      <label for="women">여자</label>
+      <input type="radio" name="gender" id="women" value="여자">
+    </fieldset>
+    <fieldset>
+      <legend>생년월일</legend>
+      <select name="birth" id="">
+        <%for(var i = 0; i < 30; i++) {%>
+          <option value="<%=1990+i%>"><%=1990+i%>년</option>
+        <%}%>
+      </select>
+      <select name="month" id="">
+        <%for(var i = 1; i < 13; i++) {%>
+          <option value="<%=i%>"><%=i%>월</option>
+        <%}%>
+      </select>
+      <select name="day" id="">
+        <%for(var i = 1; i < 32; i++) {%>
+          <option value="<%=i%>"><%=i%>일</option>
+        <%}%>
+      </select>
+    </fieldset>
+    <fieldset>
+      <legend>관심사</legend>
+      <input type="checkbox" name="travel" id="travel">
+      <label for="travel">여행</label>
+      <input type="checkbox" name="fasion" id="fasion">
+      <label for="fasion">패션</label>
+      <input type="checkbox" name="food" id="food">
+      <label for="food">음식</label>
+
+    </fieldset>
+    <button>회원가입</button>
+  </form>
+
+
+  <form action="/pt_result" method="post">
+    <label for="namne">이름</label>
+    <input type="text">
+    <fieldset>
+      <legend>성별</legend>
+      <label for="men">남자</label>
+      <input type="radio" name="gender" id="men" value="남자" required>
+      <label for="women">여자</label>
+      <input type="radio" name="gender" id="women" value="여자" required>
+    </fieldset>
+    <fieldset>
+      <legend>생년월일</legend>
+      <select name="birth" id="">
+        <%for(var i = 0; i < 30; i++) {%>
+          <option value="<%=1990+i%>"><%=1990+i%>년</option>
+        <%}%>
+      </select>
+      <select name="month" id="">
+        <%for(var i = 1; i < 13; i++) {%>
+          <option value="<%=i%>"><%=i%>월</option>
+        <%}%>
+      </select>
+      <select name="day" id="">
+        <%for(var i = 1; i < 32; i++) {%>
+          <option value="<%=i%>"><%=i%>일</option>
+        <%}%>
+      </select>
+    </fieldset>
+    <fieldset>
+      <legend>관심사</legend>
+      <input type="checkbox" name="travel" id="travel">
+      <label for="travel">여행</label>
+      <input type="checkbox" name="fasion" id="fasion">
+      <label for="fasion">패션</label>
+      <input type="checkbox" name="food" id="food">
+      <label for="food">음식</label>
+
+    </fieldset>
+
+    <fieldset>
+      <legend>선택</legend>
+      <label for="color">좋아하는 색상</label>
+      <input type="color" name="color" id="color">
+      <label for="number">좋아하는 숫자</label>
+      <input type="number" name="number" id="number">
+
+    </fieldset>
+    <button>회원가입</button>
+  </form>
+  
+  
+</body>
+</html>

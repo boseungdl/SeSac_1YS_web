@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>get요청</h3>
+  <form action="/getForm" method="get" name="getform"> 
+    <input type="text" name="id">
+    <input type="password" name="pw">
+
+    <fieldset>
+      <legend>성별</legend>
+      <input type="radio" name="gender" value="남" id="men"><label for="men">남</label>
+      <input type="radio" name="gender" value="여" id="women"><label for="women">여</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>취미</legend>
+      <input type="radio" name="hobby" value="음악">음악
+      <input type="radio" name="hobby" value="넷플">넷플
+    </fieldset>
+
+    <fieldset>
+      <legend>취미</legend>
+      <input type="checkbox" name="interest" value="축구">축구
+      <input type="checkbox" name="interest" value="농구">농구
+      <input type="checkbox" name="interest" value="야구">야구
+    </fieldset>
+
+    
+
+
+    
+    <button type="submit">제출</button>
+  </form>
+
+
+  <h3>post요청</h3>
+  <form action="/postForm" method="post" name="getform"> 
+    <input type="text" name="id" value="1" required>
+    <input type="password" name="pw" required>
+
+    <select name="birthMonth" id="">
+      <% for(var i = 1; i <=12; i++){ %>
+        <option value="<%=i%>"><%=i%></option>
+      <%}%>
+    </select>
+
+    <textarea name="content" cols="10" rows="5" value="aaa" readonly></textarea>
+
+
+    <button type="submit">제출</button>
+  </form>
+</body>
+<script>
+  console.dir(document.querySelector('input'))
+  console.dir(document.forms['getform'])
+</script>
+</html>
