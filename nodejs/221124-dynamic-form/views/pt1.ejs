@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+  <script>
+    function getForm(){
+      const form = document.querySelector("form")
+      
+      const checkbox = document.querySelectorAll(".check")
+
+      const query = {
+          gender : form.gender.value,
+          birth : form.birth.value,
+          month : form.month.value,
+          day : form.day.value,
+          travel : checkbox[0].checked,
+          fasion : checkbox[1].checked,
+          food : checkbox[2].checked,
+      }
+
+    //   axios({
+    //       method: 'get',
+    //       url : '/getForm',
+    //       params : query
+    //     }).then((res) => {
+    //       const interest = [];
+    //       checkbox.forEach(el => el.checked ? interest.push(el.name) : null)
+    //       console.dir(form.birth)  
+    //   })
+
+
+    //  $.ajax({
+    //     type: 'get',
+    //     url: '/getForm',
+    //     data : query,
+    //     success: function(data) {
+    //       console.log(data)
+    //     }
+    //   })
+   
+
+      let url = '/getForm?'
+      for(u in query){
+        url += `${u}=${query[u]}&`
+      }
+
+
+      
+      fetch(url, {
+        method: 'get',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((res) => {
+        return res.json()
+      })
+      .then((res) => {
+        console.log(res)
+      })
+  }
+  </script>
+</head>
+<body>
+  <form>
+    <label for="name">이름</label>
+    <input type="text">
+    <fieldset>
+      <legend>성별</legend>
+      <label for="men">남자</label>
+      <input type="radio" name="gender" id="men" value="남자">
+      <label for="women">여자</label>
+      <input type="radio" name="gender" id="women" value="여자">
+    </fieldset>
+    <fieldset>
+      <legend>생년월일</legend>
+      <select name="birth" id="">
+        <%for(var i = 0; i < 30; i++) {%>
+          <option value="<%=1990+i%>"><%=1990+i%>년</option>
+        <%}%>
+      </select>
+      <select name="month" id="">
+        <%for(var i = 1; i < 13; i++) {%>
+          <option value="<%=i%>"><%=i%>월</option>
+        <%}%>
+      </select>
+      <select name="day" id="">
+        <%for(var i = 1; i < 32; i++) {%>
+          <option value="<%=i%>"><%=i%>일</option>
+        <%}%>
+      </select>
+    </fieldset>
+    <fieldset>
+      <legend>관심사</legend>
+      <input class="check" type="checkbox" name="travel" id="travel">
+      <label for="travel">여행</label>
+      <input class="check" type="checkbox" name="fasion" id="fasion">
+      <label for="fasion">패션</label>
+      <input class="check" type="checkbox" name="food" id="food">
+      <label for="food">음식</label>
+
+    </fieldset>
+  </form>
+  <button onclick="getForm()">회원가입</button>
+
+
+ 
+  
+  
+</body>
+</html>

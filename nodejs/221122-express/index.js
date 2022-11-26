@@ -60,12 +60,24 @@ app.get("/getForm", (req, res) => {
 })
 
 
+
 app.post("/postForm", (req, res) => {
   console.log(req.body);
   res.render('result', {
     data : req.body
   });
 })
+
+app.get("/form2", (req, res) => {
+  res.render('form2');
+})
+
+app.get('/getform2', (req,res) => {
+  console.log(req.query)
+  res.send('이름은 : ' + req.query.name)
+})
+
+
 
 
 //실습

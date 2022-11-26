@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>upload.single()</h3>
+  <form action="/upload" method="post" enctype="multipart/form-data"> 
+    <!-- 서버에서 인코딩하지 않겠다.(파일같은 경우는 꺠질 수 있다.)/ -->
+    <input type="text" name="name">
+    <input type="file" name="userfile">
+    <input type="text" name="name2">
+
+    <button>업로드</button>
+  </form>
+  <h3>upload.array()</h3>
+  <form action="/upload-array" method="post" enctype="multipart/form-data">  
+    <input type="file" name="userfile" multiple>
+    <button>업로드</button>
+  </form>
+  <h3>upload.fields()</h3>
+  <form action="/upload-fields" method="post" enctype="multipart/form-data">  
+    <input type="file" name="userfile1">
+<br>
+    <input type="file" name="userfile2">
+<br>
+    <input type="file" name="userfile3">
+    <button>업로드</button>
+  </form>
+  
+</body>
+</html>
