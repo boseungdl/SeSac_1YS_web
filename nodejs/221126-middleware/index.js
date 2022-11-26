@@ -7,6 +7,7 @@ const port = 8000;
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.use('/uploads', express.static('uploads'))
 // const upload = multer({
 //   dest: 'uploads/'
 // })
@@ -17,6 +18,7 @@ const upload = multer({
       done(null, 'uploads/');
     },
     filename(req, file, done){
+      console.log(req.body)
       const ext = path.extname(file.originalname); //바나나.jpg
       const filenmae = req.body.id + ext; //123123.jpg
       done(null, filenmae);
@@ -30,8 +32,12 @@ app.get('/pt1',  (req,res) => {
   res.render('pt1');
 })
 app.post('/upload-pt', upload.single('filept'),  (req,res) => {
-  console.log(req.file)
+  console.log(req.body);
+  console.log(req.file);
   res.sendFile(`${__dirname}/uploads/${req.file.filename}`)
+})
+app.post('/upload-pt2', upload.single('file'),  (req,res) => {
+  res.send(req.file.filename)
 })
 
 
