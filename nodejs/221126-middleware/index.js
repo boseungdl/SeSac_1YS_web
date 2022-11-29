@@ -18,7 +18,7 @@ const upload = multer({
       done(null, 'uploads/');
     },
     filename(req, file, done){
-      console.log(req.body)
+      console.log(req.body);
       const ext = path.extname(file.originalname); //바나나.jpg
       const filenmae = req.body.id + ext; //123123.jpg
       done(null, filenmae);
