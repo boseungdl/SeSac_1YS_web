@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const port = 8000;
-const {User1} = require("./model/User");
+const {User} = require("./model/index");
 
 app.set("view engine", "ejs");
 
@@ -14,12 +14,14 @@ const router = require("./routes");
 const userRouter = require("./routes/user");
 app.get('/login', (req,res) => {res.render('login')});
 app.post("/main", async (req, res) => {
-    let result = await User1.findOne({
-        where: req.body.id
+    console.log(req.body)
+    let result = await User.findOne({
+        where: {
+            id : req.body.id
+        }
     })
-    console.log(result)
+    console.log('result', result)
     res.render('index', {data: result})
-    //res.render('index', {data: req.body})
   });
 app.use('/visitor', router);
 app.use('/user', userRouter);

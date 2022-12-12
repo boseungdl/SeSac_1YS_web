@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <title>Document</title>
+  <script>
+    function popupClose(){
+      axios({
+        method: 'post',
+        url: '/popupclose',
+      }).then((result)=>{
+        document.querySelector("div").style.display = 'none';
+      })
+    }
+  </script>
+</head>
+<body>
+
+  <h1>hi</h1>
+  <% if(data.popup != 0) { %>
+ <div style="width: 200px; height: 200px; background: rgb(153, 182, 196);"> 
+    팝업창
+    <div style="margin-top: 150px" onclick="popupClose()">3일간 보지 않기</div>
+  </div>
+  <% } %>
+</body>
+</html>

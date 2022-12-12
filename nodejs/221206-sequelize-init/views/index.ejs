@@ -11,7 +11,7 @@
     function update(){
       const form = document.querySelector('form')
       axios({
-        method: 'post',
+        method: 'patch',
         url: '/user/update',
         data: {
           hidden: form.hidden.value,

@@ -7,6 +7,6 @@ router.get('/', (req, res) => {
 })
 router.post('/signup', controller.user_register)
 router.post('/login', controller.user_login)
-router.post('/update', controller.user_update)
+router.patch('/update', controller.user_update)
 
 module.exports = router;
